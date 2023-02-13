@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: magic;
+}
+
+@font-face {
+  font-family: magic;
+  src: url(fonts/magic.ttf);
+}
+
+body {
+  overflow: hidden;
+}
+
+
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: black;
+}
+
+.tic-tac-toe {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  border:5px inset gray;
+  box-shadow: 2px 5px 10px rgba(0,0,0,0.1) inset,
+  -2px -5px 10px rgba(0,0,0,0.25) inset,
+  10px 15px 15px rgba(0,0,0,0.1),
+  15px 10px 15px rgba(0,0,0,0.25);
+  grid-gap:5px;
+  padding: 10px;
+  background: rgb(0, 0, 0);
+}
+
+.grid {
+  display: grid;
+  place-items: center;
+  font-size: 100px;
+  background: linear-gradient(#000000, #000000);
+  border: 2px inset gray;
+  box-shadow: 0 0 3px 2px black inset;
+  position: relative;
+  cursor: pointer;
+  color: transparent;
+  text-shadow: 0 0 2px deepskyblue,
+  0 0 5px deepskyblue,
+  0 0 10px deepskyblue,
+  0 0 20px deepskyblue,
+  0 0 50px deepskyblue,
+  0 0 100px deepskyblue,
+  0 0 200px deepskyblue;
+  -webkit-text-stroke : 1px white
+
+}
+
+.grid > span {
+  transform: perspective(10px) scale(0) rotate3d(0deg);
+}
+
+.shake {
+    animation: hide .5s linear 1 forwards;
+}
+
+@keyframes hide {
+  to {
+    transform: perspective(10px) scale(1) rotate3d(1,23,602,360deg) ;
+
+  }
+}
+
+.grid::before {
+  content: '';
+    position: absolute;
+    right: -3px;
+    top: 5px;
+    background: rgb(117 117 117 / 23%);
+    width: 35%;
+    height: 13px;
+    border-radius: 45% 55% 53% 47% / 30% 80% 20% 70%;
+    filter: blur(2px);
+    transform: rotateY(37deg);
+}
+
+
